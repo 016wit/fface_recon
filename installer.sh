@@ -53,3 +53,5 @@ sudo pip3 install face_recognition
 echo "Install install face_recognition"
 sudo pip3 install dlib
 echo "Install install dlib"
+
+sudo reboot
