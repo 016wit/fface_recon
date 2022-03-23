@@ -50,14 +50,14 @@ MinCountourArea = areaFrame * 0.0111  #Adjust ths value according to your usage
 # initialize the camera and grab a reference to the raw camera capture
 camera = PiCamera()
 
-#camera.crop = (0.25, 0.25, 0.5, 0.5)
-camera.crop = (0.22, 0.10, 0.40, 0.40)
-camera.rotation = 180
+camera.crop = (0.25, 0.25, 0.5, 0.5)
+# camera.crop = (0.22, 0.10, 0.40, 0.40)
+camera.rotation = 0
 camera.hflip = False
 camera.resolution = (640, 360)
-camera.framerate = 30
+camera.framerate = 40
 camera.brightness = 65
-#camera.roi = (0.5,0.5,0.25,0.25)
+# camera.roi = (0.5,0.5,0.25,0.25)
 #camera.brightness = 60
 rawCapture = PiRGBArray(camera, size=(640, 360))
 # Get a reference to webcam #0 (the default one)
