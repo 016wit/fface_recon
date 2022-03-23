@@ -54,4 +54,7 @@ echo "Install install face_recognition"
 sudo pip3 install dlib
 echo "Install install dlib"
 
+pip3 install  opencv-python
+pip3 install imutils
+
 sudo reboot
