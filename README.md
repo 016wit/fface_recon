@@ -1,6 +1,6 @@
 # fface_recon
 
-run endode for learning "python encode_faces.py --dataset dataset --encodings encodings.pickle --detection-method hog"
+run endode for learning "python3 encode_faces.py --dataset dataset --encodings encodings.pickle --detection-method hog"
 
 python encode_faces.py หมายถึงทำการรัน script ชื่อ encode_faces.py ที่เราจัดเตรียมไว้แล้ว
 --dataset dataset หมายถึงตำแหน่ง path ที่อยู่ของรูปใบหน้าที่เตรียมไว้
