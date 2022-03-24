@@ -57,4 +57,7 @@ echo "Install install dlib"
 pip3 install  opencv-python
 pip3 install imutils
 
+pip3 install openpyxl
+pip3 install datetime
+
 sudo reboot
