@@ -18,6 +18,21 @@ import pickle
 
 # microgear.create(key,secret,app,{'debugmode': True})
 
+import openpyxl as xl # import library
+import numpy as np
+
+import time
+import datetime
+
+variable = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+file = xl.Workbook() # สร้าง Workbook
+sheet = file.worksheets[0] # กำหนด worksheets
+
+row = 1
+
+st = " "
+
 def connection():
     logging.info("Now I am connected with netpie")
 
@@ -84,6 +99,7 @@ process_this_frame = True
 motion_flag = False
 idle_time = 0
 namePre = ""
+
 for image in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True):
     if args["video"] is None :
         #frame = camera.read()
@@ -125,6 +141,17 @@ for image in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
             face_names.append(name)
             myString = ",".join(face_names)
             # microgear.publish("/namePeople",myString,{'retain':True})
+            
+            print(st)
+            print(myString)
+            if st != myString and myString != "Unknown":
+               
+                sheet.cell(row,3).value = myString # ใส่ลงช่องที่กำหนด
+                sheet.cell(row,2).value = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                row = row+1
+                st = myString
+                print(row)
+            file.save('f'+ str(variable) +'.xlsx') # บันทึกไฟล์
 
     process_this_frame = False
     if idle_time%5==0:
@@ -154,6 +181,7 @@ for image in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
+# file.save('file.xlsx') # บันทึกไฟล์
 # Release handle to the webcam
 video_capture.release()
 cv2.destroyAllWindows()
