@@ -11,12 +11,11 @@ from os.path import isfile, join
 from imutils.video import VideoStream
 import imutils
 import pickle
-#connect netpie
-# key = 'key'
-# secret = 'secret key'
-# app = 'APP_ID'
 
-# microgear.create(key,secret,app,{'debugmode': True})
+from gpiozero import Button
+from subprocess import check_call
+from signal import pause
+
 
 import openpyxl as xl # import library
 import numpy as np
@@ -32,15 +31,6 @@ sheet = file.worksheets[0] # กำหนด worksheets
 row = 1
 
 st = " "
-
-def connection():
-    logging.info("Now I am connected with netpie")
-
-def subscription(topic,message):
-    print(topic+" "+message)
-
-def disconnect():
-    logging.info("disconnected")
 
 # microgear.setalias("facerec")
 # microgear.on_connect = connection
@@ -151,7 +141,7 @@ for image in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
                 row = row+1
                 st = myString
                 print(row)
-            file.save('f'+ str(variable) +'.xlsx') # บันทึกไฟล์
+            file.save('/home/pi/Desktop/fface_recon/excel/f'+ str(variable) +'.xlsx') # บันทึกไฟล์
 
     process_this_frame = False
     if idle_time%5==0:
