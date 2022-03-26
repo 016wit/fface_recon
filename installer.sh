@@ -54,10 +54,10 @@ echo "Install install face_recognition"
 sudo pip3 install dlib
 echo "Install install dlib"
 
-pip3 install  opencv-python
-pip3 install imutils
+sudo pip3 install  opencv-python
+sudo pip3 install imutils
 
-pip3 install openpyxl
-pip3 install datetime
+sudo pip3 install openpyxl
+sudo pip3 install datetime
 
 sudo reboot
